@@ -10,12 +10,14 @@ namespace Number_guesser
     {
         public DifficultySelectionViewModel difficultyViewModel { get; private set; }
         public GameViewModel gameViewModel { get; private set; }
+        public HighscoreViewModel highscoreViewModel { get; private set; }
 
 
         public MainViewModel()
         {
             difficultyViewModel = new DifficultySelectionViewModel();
             gameViewModel = new GameViewModel();
+            highscoreViewModel = new HighscoreViewModel();
         }
 
 
@@ -23,6 +25,8 @@ namespace Number_guesser
         {
             difficultyViewModel = new DifficultySelectionViewModel();
             gameViewModel = new GameViewModel(dif);
+            highscoreViewModel = new HighscoreViewModel();
+
         }
 
 

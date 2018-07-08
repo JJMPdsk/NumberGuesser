@@ -9,12 +9,19 @@ namespace Number_guesser
 {
     public class DifficultySelectionViewModel : ObservableObject
     {
+        #region Commands
 
         public DelegateCommand NoDifficultySelectionCommand { get; private set; }
         public DelegateCommand EasyDifficultySelectionCommand { get; private set; }
         public DelegateCommand NormalDifficultySelectionCommand { get; private set; }
         public DelegateCommand HardDifficultySelectionCommand { get; private set; }
         public DelegateCommand ImpossibleDifficultySelectionCommand { get; private set; }
+        public DelegateCommand ShowHistoryCommand { get; private set; }
+
+        #endregion
+
+        #region Constructors
+
         public DifficultySelectionViewModel()
         {
             NoDifficultySelectionCommand = new DelegateCommand(SelectNoDifficulty);
@@ -22,7 +29,12 @@ namespace Number_guesser
             NormalDifficultySelectionCommand = new DelegateCommand(SelectNormalDifficulty);
             HardDifficultySelectionCommand = new DelegateCommand(SelectHardDifficulty);
             ImpossibleDifficultySelectionCommand = new DelegateCommand(SelectImpossibleDifficulty);
+            ShowHistoryCommand = new DelegateCommand(ShowHistory);
         }
+
+        #endregion
+
+        #region Methods
 
         public void SelectNoDifficulty()
         {
@@ -49,6 +61,13 @@ namespace Number_guesser
             Application.Current.MainWindow.Content = new GameView();
             Application.Current.MainWindow.DataContext = new MainViewModel(4);
         }
+
+        public void ShowHistory()
+        {
+            Application.Current.MainWindow.Content = new HighscoreView();
+        }
+        
+        #endregion
 
     }
 }

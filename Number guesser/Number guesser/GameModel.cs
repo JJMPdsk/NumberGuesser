@@ -9,11 +9,16 @@ namespace Number_guesser
     public class GameModel : ObservableObject
     {
 
-        //Fields
+        #region Fields
+
         private int _myNumber;
         private int numberToGuess;
         private int _difficulty;
-        //Properties
+        
+        #endregion
+
+        #region Properties
+
         public int MyNumber
         {
             get { return _myNumber; }
@@ -61,9 +66,10 @@ namespace Number_guesser
             }
         }
 
+        #endregion
 
+        #region Constructors
 
-        //Constructors
         public GameModel()
         {
             MyNumber = 3;
@@ -75,20 +81,23 @@ namespace Number_guesser
             Difficulty = dif;
         }
 
+        #endregion
 
-        //Methods
+        #region Methods
+
         public void IncrementMyNumber() => MyNumber++;
         public void DecrementMyNumber()
         {
             if (MyNumber > 0)
                 MyNumber--;
         }
-
         public bool Check()
         {
             if(MyNumber == numberToGuess )
                 return true;
             return false;
         }
+       
+        #endregion
     }
 }

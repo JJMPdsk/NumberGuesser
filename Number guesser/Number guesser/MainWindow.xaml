@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Number_guesser"
         mc:Ignorable="d"
         Title="Number guesser" Height="440" Width="660" ResizeMode="NoResize">
+
+    
+    
     <Grid>
         <ContentControl x:Name="contentControl" Grid.Row="1"/>
     </Grid>

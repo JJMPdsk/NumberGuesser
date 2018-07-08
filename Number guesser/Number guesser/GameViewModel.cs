@@ -11,15 +11,18 @@ namespace Number_guesser
 {
     public class GameViewModel : ObservableObject
     {
-        //Fields
+        #region Fields
+
         private Brush _checkedIfGuessed;
         private string _resultOfCheck;
         private string _tooHighOrTooLow;
-        //private bool _won;
         private Visibility _continueButt;
         private int _checkCounter;
 
-        //Properties
+        #endregion
+
+        #region Properties
+
         public GameModel gameModel { get; set; }
         public Brush CheckedIfGuessed
         {
@@ -49,16 +52,6 @@ namespace Number_guesser
             }
         }
 
-        //public bool Won
-        //{
-        //    get { return _won; }
-        //    set
-        //    {
-        //        _won = value;
-        //        OnPropertyChangedEvent("Won");
-        //    }
-        //}
-
         public Visibility ContinueButt
         {
             get { return _continueButt; }
@@ -78,15 +71,19 @@ namespace Number_guesser
             }
         }
 
+        #endregion
 
-        //Commands
+        #region Commands
+
         public DelegateCommand IncrementCommand { get; private set; }
         public DelegateCommand DecrementCommand { get; private set; }
         public DelegateCommand CheckCommand { get; private set; }
         public DelegateCommand ContinueCommand { get; private set; }
 
+        #endregion
 
-        //Constructor
+        #region Constructors
+
         public GameViewModel()
         {
             gameModel = new GameModel();
@@ -112,16 +109,21 @@ namespace Number_guesser
             CheckCounter = 0;
         }
 
-        //Methods
+        #endregion
+
+        #region Methods
+
         public void Check()
         {
+            CheckCounter++;
+
             if (gameModel.Check())
             {
                 CheckedIfGuessed = Brushes.Green;
                 ResultOfCheck = "You guessed it!";
                 TooHighOrTooLow = " ";
                 ContinueButt = Visibility.Visible;
-                //Won = true;
+                HighscoreViewModel.AddNewHighscore(new HighscoreModel { TryCount = CheckCounter, PlayedDifficulty = gameModel.Difficulty });
             }
             else
             {
@@ -133,7 +135,6 @@ namespace Number_guesser
                 ContinueButt = Visibility.Collapsed;
             }
 
-            CheckCounter++; 
 
         }
         public void Continue()
@@ -142,5 +143,9 @@ namespace Number_guesser
             ContinueButt = Visibility.Collapsed;
 
         }
+
+        #endregion
+
+
     }
 }

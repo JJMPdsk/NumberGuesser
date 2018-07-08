@@ -16,18 +16,15 @@ using System.Windows.Shapes;
 namespace Number_guesser
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy HighscoreView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HighscoreView : UserControl
     {
 
-        public MainWindow()
+        public HighscoreView()
         {
             InitializeComponent();
-            this.contentControl.Content = new DifficultySelectionView();
-            //this.contentControl.Content = new HighscoreView();
-            this.DataContext = new MainViewModel();
-        
+            LVsummary.ItemsSource = HighscoreViewModel.highscores;
         }
     }
 }

@@ -45,5 +45,14 @@
                 Grid.Column="1" Grid.Row="6" Foreground="#610C00"
                 Command="{Binding difficultyViewModel.ImpossibleDifficultySelectionCommand}">impossible</Button>
 
+
+        <Button  Margin="5"  Style="{StaticResource BTNstyle_Navigation}" Grid.Column="2" VerticalAlignment="Bottom"
+                 Grid.Row="7" Height="35" Width="80" HorizontalAlignment="Right" Content="History"
+                 Command="{Binding difficultyViewModel.ShowHistoryCommand}"/>
+
+
+
+
+
     </Grid>
 </UserControl>
