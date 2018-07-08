@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="Number_guesser.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Number_guesser"
+             mc:Ignorable="d" 
+             d:DesignHeight="440" d:DesignWidth="660">
+    <Grid Background="#2D2E2D">
+        <!-- 6 rows -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- 7 columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Style="{StaticResource TBstyle_Title}" Grid.Column="2" Grid.ColumnSpan="3" 
+                    VerticalAlignment="Center" Text="Guess the number!"/>
+
+        <TextBlock x:Name="NumberToCheck" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Style="{StaticResource TBstyle_NumberGuess}"
+                   Text="{Binding gameViewModel.gameModel.MyNumber, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="3">
+            <Button Style="{StaticResource BTNstyle_NumberManipulator}" Content="+" Height="103"
+                    Command="{Binding gameViewModel.IncrementCommand}"/>
+            <Button Style="{StaticResource BTNstyle_NumberManipulator}" Content="-" Height="117"
+                    Command="{Binding gameViewModel.DecrementCommand}"/>
+        </StackPanel>
+
+
+        <!-- Button for checking, will be covered with other if guessed -->
+        <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" FontSize="32"
+                Style="{StaticResource BTNstyle_NumberManipulator}" Content="Check!"
+                Command="{Binding gameViewModel.CheckCommand}"/>
+
+
+        <Button x:Name="ContinueButton" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource BTNstyle_Continue}"
+                Visibility="{Binding gameViewModel.ContinueButt}"  Content="Continue" Command="{Binding gameViewModel.ContinueCommand}"/>
+
+
+
+
+
+        <!-- Binding na text-->
+        <WrapPanel Grid.Row="5" Margin="5 0 0 5"  VerticalAlignment="Bottom">
+            <TextBlock Foreground="#89827C" Text="Try number: "/>
+            <TextBlock Foreground="#89827C" Text="{Binding gameViewModel.CheckCounter}"/>
+        </WrapPanel>
+        
+
+        <!-- Binding na kolor i text -->
+        <TextBlock x:Name="GuessedOrNot" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource TBstyle_GuessedOrNot}" Margin="0 5 0 0" 
+                    Foreground="{Binding gameViewModel.CheckedIfGuessed}" Text="{Binding gameViewModel.ResultOfCheck}"/>
+
+
+        <TextBlock Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource TBstyle_GuessedOrNot}" VerticalAlignment="Bottom" Margin="0 0 0 5"
+                   Foreground="{Binding ElementName=GuessedOrNot, Path=Foreground}" Text="{Binding gameViewModel.TooHighOrTooLow}"/>
+
+        
+    </Grid>
+</UserControl>

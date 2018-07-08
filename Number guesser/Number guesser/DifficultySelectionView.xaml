@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Number_guesser.DifficultySelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Number_guesser"
+             mc:Ignorable="d" 
+             d:DesignHeight="440" d:DesignWidth="660">
+    <Grid Background="#2D2E2D">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+ 
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <TextBlock Style="{StaticResource TBstyle_Title}" Text="Difficulty selection"/>
+        </StackPanel>
+
+        <Border Background="#3C3D3C" Grid.RowSpan="5" Grid.Column="1" Grid.Row="2"/>
+        <Button Style="{StaticResource BTNstyle_Difficulty}"
+                Grid.Column="1" Grid.Row="2" Foreground="#F2E70C"
+                Command="{Binding difficultyViewModel.NoDifficultySelectionCommand}">let me win please</Button>
+        <Button Style="{StaticResource BTNstyle_Difficulty}"
+                Grid.Column="1" Grid.Row="3" Foreground="#0BE51C"
+                Command="{Binding difficultyViewModel.EasyDifficultySelectionCommand}">easy</Button>
+        <Button Style="{StaticResource BTNstyle_Difficulty}"
+                Grid.Column="1" Grid.Row="4" Foreground="#CF9300"
+                Command="{Binding difficultyViewModel.NormalDifficultySelectionCommand}">normal</Button>
+        <Button Style="{StaticResource BTNstyle_Difficulty}"
+                Grid.Column="1" Grid.Row="5" Foreground="#CF1900"
+                Command="{Binding difficultyViewModel.HardDifficultySelectionCommand}">hard</Button>
+        <Button Style="{StaticResource BTNstyle_Difficulty}"
+                Grid.Column="1" Grid.Row="6" Foreground="#610C00"
+                Command="{Binding difficultyViewModel.ImpossibleDifficultySelectionCommand}">impossible</Button>
+
+    </Grid>
+</UserControl>
