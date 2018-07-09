@@ -31,24 +31,24 @@
         <Border Background="#3C3D3C" Grid.RowSpan="5" Grid.Column="1" Grid.Row="2"/>
         <Button Style="{StaticResource BTNstyle_Difficulty}"
                 Grid.Column="1" Grid.Row="2" Foreground="#F2E70C"
-                Command="{Binding difficultyViewModel.NoDifficultySelectionCommand}">let me win please</Button>
+                Command="{Binding NoDifficultySelectionCommand}">let me win please</Button>
         <Button Style="{StaticResource BTNstyle_Difficulty}"
                 Grid.Column="1" Grid.Row="3" Foreground="#0BE51C"
-                Command="{Binding difficultyViewModel.EasyDifficultySelectionCommand}">easy</Button>
+                Command="{Binding EasyDifficultySelectionCommand}">easy</Button>
         <Button Style="{StaticResource BTNstyle_Difficulty}"
                 Grid.Column="1" Grid.Row="4" Foreground="#CF9300"
-                Command="{Binding difficultyViewModel.NormalDifficultySelectionCommand}">normal</Button>
+                Command="{Binding NormalDifficultySelectionCommand}">normal</Button>
         <Button Style="{StaticResource BTNstyle_Difficulty}"
                 Grid.Column="1" Grid.Row="5" Foreground="#CF1900"
-                Command="{Binding difficultyViewModel.HardDifficultySelectionCommand}">hard</Button>
+                Command="{Binding HardDifficultySelectionCommand}">hard</Button>
         <Button Style="{StaticResource BTNstyle_Difficulty}"
                 Grid.Column="1" Grid.Row="6" Foreground="#610C00"
-                Command="{Binding difficultyViewModel.ImpossibleDifficultySelectionCommand}">impossible</Button>
+                Command="{Binding ImpossibleDifficultySelectionCommand}">impossible</Button>
 
 
         <Button  Margin="5"  Style="{StaticResource BTNstyle_Navigation}" Grid.Column="2" VerticalAlignment="Bottom"
                  Grid.Row="7" Height="35" Width="80" HorizontalAlignment="Right" Content="History"
-                 Command="{Binding difficultyViewModel.ShowHistoryCommand}"/>
+                 Command="{Binding ShowHistoryCommand}"/>
 
 
 

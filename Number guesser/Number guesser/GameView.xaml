@@ -31,24 +31,24 @@
                     VerticalAlignment="Center" Text="Guess the number!"/>
 
         <TextBlock x:Name="NumberToCheck" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3" Style="{StaticResource TBstyle_NumberGuess}"
-                   Text="{Binding gameViewModel.gameModel.MyNumber, UpdateSourceTrigger=PropertyChanged}"/>
+                   Text="{Binding gameModel.MyNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
         <StackPanel Grid.Column="5" Grid.Row="1" Grid.RowSpan="3">
             <Button Style="{StaticResource BTNstyle_NumberManipulator}" Content="+" Height="103"
-                    Command="{Binding gameViewModel.IncrementCommand}"/>
+                    Command="{Binding IncrementCommand}"/>
             <Button Style="{StaticResource BTNstyle_NumberManipulator}" Content="-" Height="117"
-                    Command="{Binding gameViewModel.DecrementCommand}"/>
+                    Command="{Binding DecrementCommand}"/>
         </StackPanel>
 
 
         <!-- Button for checking, will be covered with other if guessed -->
         <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" FontSize="32"
                 Style="{StaticResource BTNstyle_NumberManipulator}" Content="Check!"
-                Command="{Binding gameViewModel.CheckCommand}"/>
+                Command="{Binding CheckCommand}"/>
 
 
         <Button x:Name="ContinueButton" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource BTNstyle_Continue}"
-                Visibility="{Binding gameViewModel.ContinueButt}"  Content="Continue" Command="{Binding gameViewModel.ContinueCommand}"/>
+                Visibility="{Binding ContinueButt}"  Content="Continue" Command="{Binding ContinueCommand}"/>
 
 
 
@@ -57,17 +57,17 @@
         <!-- Binding na text-->
         <WrapPanel Grid.Row="5" Margin="5 0 0 5"  VerticalAlignment="Bottom">
             <TextBlock Foreground="#89827C" Text="Try number: "/>
-            <TextBlock Foreground="#89827C" Text="{Binding gameViewModel.CheckCounter}"/>
+            <TextBlock Foreground="#89827C" Text="{Binding CheckCounter}"/>
         </WrapPanel>
         
 
         <!-- Binding na kolor i text -->
         <TextBlock x:Name="GuessedOrNot" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource TBstyle_GuessedOrNot}" Margin="0 5 0 0" 
-                    Foreground="{Binding gameViewModel.CheckedIfGuessed}" Text="{Binding gameViewModel.ResultOfCheck}"/>
+                    Foreground="{Binding CheckedIfGuessed}" Text="{Binding ResultOfCheck}"/>
 
 
         <TextBlock Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource TBstyle_GuessedOrNot}" VerticalAlignment="Bottom" Margin="0 0 0 5"
-                   Foreground="{Binding ElementName=GuessedOrNot, Path=Foreground}" Text="{Binding gameViewModel.TooHighOrTooLow}"/>
+                   Foreground="{Binding ElementName=GuessedOrNot, Path=Foreground}" Text="{Binding TooHighOrTooLow}"/>
 
         
     </Grid>

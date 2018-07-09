@@ -39,32 +39,34 @@ namespace Number_guesser
         public void SelectNoDifficulty()
         {
             Application.Current.MainWindow.Content = new GameView();
-            Application.Current.MainWindow.DataContext = new MainViewModel(0);
+            Application.Current.MainWindow.DataContext = new GameViewModel(0);
         }
         public void SelectEasyDifficulty()
         {
             Application.Current.MainWindow.Content = new GameView();
-            Application.Current.MainWindow.DataContext = new MainViewModel(1);
+            Application.Current.MainWindow.DataContext = new GameViewModel(1);
         }
         public void SelectNormalDifficulty()
         {
             Application.Current.MainWindow.Content = new GameView();
-            Application.Current.MainWindow.DataContext = new MainViewModel(2);
+            Application.Current.MainWindow.DataContext = new GameViewModel(2);
         }
         public void SelectHardDifficulty()
         {
             Application.Current.MainWindow.Content = new GameView();
-            Application.Current.MainWindow.DataContext = new MainViewModel(3);
+            Application.Current.MainWindow.DataContext = new GameViewModel(3);
         }
         public void SelectImpossibleDifficulty()
         {
             Application.Current.MainWindow.Content = new GameView();
-            Application.Current.MainWindow.DataContext = new MainViewModel(4);
+            Application.Current.MainWindow.DataContext = new GameViewModel(4);
+           // Application.Current.MainWindow.DataContext = new MainViewModel(4);
         }
 
         public void ShowHistory()
         {
             Application.Current.MainWindow.Content = new HighscoreView();
+            Application.Current.MainWindow.DataContext = new HighscoreViewModel();
         }
         
         #endregion

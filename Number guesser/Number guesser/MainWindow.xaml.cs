@@ -21,12 +21,17 @@ namespace Number_guesser
     public partial class MainWindow : Window
     {
 
+        MainViewModel mainVM { get; set; }
+
         public MainWindow()
         {
+            mainVM = new MainViewModel();
             InitializeComponent();
             this.contentControl.Content = new DifficultySelectionView();
             //this.contentControl.Content = new HighscoreView();
-            this.DataContext = new MainViewModel();
+            //this.DataContext = mainVM;
+            this.DataContext = new DifficultySelectionViewModel();
+            
         
         }
     }

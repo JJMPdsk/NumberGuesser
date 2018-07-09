@@ -24,7 +24,8 @@ namespace Number_guesser
         public HighscoreView()
         {
             InitializeComponent();
-            LVsummary.ItemsSource = HighscoreViewModel.highscores;
+            HighscoreViewModel hVM = new HighscoreViewModel();
+            LVsummary.ItemsSource = hVM.highscores;
         }
     }
 }

@@ -50,10 +50,10 @@
 
         <Button  Margin="5" Style="{StaticResource BTNstyle_Navigation}" Grid.Column="6" VerticalAlignment="Bottom"
                  Grid.Row="5" Height="35" Width="80" HorizontalAlignment="Right" Content="Back"
-                 Command="{Binding highscoreViewModel.ShowDifficultySelectionViewCommand}"/>
+                 Command="{Binding ShowDifficultySelectionViewCommand}"/>
 
         <Button Margin="5" Style="{StaticResource BTNstyle_Navigation}" Grid.Column="4" VerticalAlignment="Bottom"
                  Grid.Row="5" Height="35" Width="80" HorizontalAlignment="Left" Content="Clear"
-                 Command="{Binding highscoreViewModel.ClearHistoryCommand}"/>
+                 Command="{Binding ClearHistoryCommand}"/>
     </Grid>
 </UserControl>

@@ -24,6 +24,7 @@ namespace Number_guesser
         #region Properties
 
         public GameModel gameModel { get; set; }
+        public HighscoreViewModel highscoreVM { get; set; }
         public Brush CheckedIfGuessed
         {
             get { return _checkedIfGuessed; }
@@ -94,6 +95,7 @@ namespace Number_guesser
             ContinueCommand = new DelegateCommand(Continue);
             ContinueButt = Visibility.Collapsed;
             CheckCounter = 0;
+            highscoreVM = new HighscoreViewModel();
 
         }
 
@@ -107,6 +109,8 @@ namespace Number_guesser
             ContinueCommand = new DelegateCommand(Continue);
             ContinueButt = Visibility.Collapsed;
             CheckCounter = 0;
+            highscoreVM = new HighscoreViewModel();
+
         }
 
         #endregion
@@ -123,7 +127,7 @@ namespace Number_guesser
                 ResultOfCheck = "You guessed it!";
                 TooHighOrTooLow = " ";
                 ContinueButt = Visibility.Visible;
-                HighscoreViewModel.AddNewHighscore(new HighscoreModel { TryCount = CheckCounter, PlayedDifficulty = gameModel.Difficulty });
+                highscoreVM.AddNewHighscore(new HighscoreModel { TryCount = CheckCounter, PlayedDifficulty = gameModel.Difficulty });
             }
             else
             {
@@ -139,8 +143,9 @@ namespace Number_guesser
         }
         public void Continue()
         {
-            Application.Current.MainWindow.Content = new DifficultySelectionView();
             ContinueButt = Visibility.Collapsed;
+            Application.Current.MainWindow.Content = new DifficultySelectionView();
+            Application.Current.MainWindow.DataContext = new DifficultySelectionViewModel();
 
         }
 
